@@ -2,16 +2,17 @@
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import random
+
 
 def brute(num_colors, array_colors):
     max_bridges = 0
 
 
-
 def main():
-    brute(1,1)
-    # Use a breakpoint in the code line below to debug your script.
-    # Press Ctrl+F8 to toggle the breakpoint.
+    # num_colors value to be changed whenever needed
+    num_colors = 5
+    array_colors = []
 
 
 # Press the green button in the gutter to run the script.
