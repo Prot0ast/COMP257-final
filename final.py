@@ -47,27 +47,27 @@ def greedy(bridge_arr):
     indexes = [bridge_dict[a] for a in sorted_version]
 
     bridgeSet = []
-    n = len(sorted_version[1:])
-    bridgeSet.append(sorted_version[0])
-    for i in range(1, n):
-        if indexes[i-1] <= indexes[i]:
+    # n = len(sorted_version[1:])
+    # bridgeSet.append(sorted_version[0])
+    for i in range(len(sorted_version)):
+        if indexes[i-1] < indexes[i]:
             bridgeSet.append(sorted_version[i])
     return len(bridgeSet)
 
 
-def dynamic(n, A):
-    DP = [1 for i in range(n)]
-    for i in range(n):
+def dynamic(size, bridge_arr):
+    DP = [1 for i in range(size)]
+    for i in range(size):
         if i == 0:
             DP[i] = 1
         else:
             maxPrev = 0
             for j in range(i - 1):
-                if A[j] < A[i]:
+                if bridge_arr[j] < bridge_arr[i]:
                     if DP[j] > maxPrev:
                         maxPrev = DP[j]
             DP[i] = 1 + maxPrev
-    return DP[n - 1]
+    return DP[size - 1]
 
 
 def main():
