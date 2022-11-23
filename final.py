@@ -47,8 +47,6 @@ def greedy(bridge_arr):
     indexes = [bridge_dict[a] for a in sorted_version]
 
     bridgeSet = []
-    # n = len(sorted_version[1:])
-    # bridgeSet.append(sorted_version[0])
     for i in range(len(sorted_version)):
         if indexes[i-1] < indexes[i]:
             bridgeSet.append(sorted_version[i])
