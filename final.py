@@ -54,7 +54,7 @@ def greedy(bridge_arr):
 
 
 def dynamic(size, bridge_arr):
-    DP = [1 for i in range(size)]
+    DP = [0 for i in range(size)]
     for i in range(size):
         if i == 0:
             DP[i] = 1
@@ -70,7 +70,7 @@ def dynamic(size, bridge_arr):
 
 def main():
     # num_colors value to be changed whenever needed
-    num_colors = 5
+    # num_colors = 5
     # array_bridges = generate_random(num_colors)
     array_bridges = [5, 4, 1, 2, 3]
     print("Bridge set to be checked: ", array_bridges)
