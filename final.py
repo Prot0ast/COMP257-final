@@ -3,6 +3,8 @@
 # Description: This is my implementation for Problem 5 Board Game problem which consists of 3 different algorithms:
 # Brute-Force, Greedy, and Dynamic Programming
 
+import numpy as np
+
 # Helper Functions
 
 
@@ -65,7 +67,7 @@ def dynamic(size, bridge_arr):
                     if DP[j] > maxPrev:
                         maxPrev = DP[j]
             DP[i] = 1 + maxPrev
-    return DP[size - 1]
+    return np.max(DP[size - 1])
 
 
 def main():
