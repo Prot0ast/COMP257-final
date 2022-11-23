@@ -40,28 +40,48 @@ def brute(subsets):
 
 def greedy(bridge_arr):
     sorted_version = sorted(bridge_arr)
-    bridgeSet = []
-    n = len(sorted_version[1:])
+
     bridge_dict = {}
     for i, b in enumerate(bridge_arr):
         bridge_dict[b] = i
     indexes = [bridge_dict[a] for a in sorted_version]
+
+    bridgeSet = []
+    n = len(sorted_version[1:])
     bridgeSet.append(sorted_version[0])
     for i in range(1, n):
-        if bridgeSet[i - 1] <= sorted_version[i] and indexes[i-1] <= indexes[i]:
+        if indexes[i-1] <= indexes[i]:
             bridgeSet.append(sorted_version[i])
     return len(bridgeSet)
+
+
+def dynamic(n, A):
+    DP = [1 for i in range(n)]
+    for i in range(n):
+        if i == 0:
+            DP[i] = 1
+        else:
+            maxPrev = 0
+            for j in range(i - 1):
+                if A[j] < A[i]:
+                    if DP[j] > maxPrev:
+                        maxPrev = DP[j]
+            DP[i] = 1 + maxPrev
+    return DP[n - 1]
+
 
 
 def main():
     # num_colors value to be changed whenever needed
     num_colors = 5
     # array_bridges = generate_random(num_colors)
-    print("Bridge set to be checked: ", [5, 4, 1, 2, 3])
-    subsets = subset_maker([5, 4, 1, 2, 3])
+    array_bridges = [4, 3, 1, 2]
+    print("Bridge set to be checked: ", array_bridges)
+    subsets = subset_maker(array_bridges)
     # print("Subsets for the bridge set: ", subsets)
     print("Brute solution result: ", brute(subsets))
-    print("Greedy solution result: ", greedy([5, 4, 1, 2, 3]))
+    print("Greedy solution result: ", greedy(array_bridges))
+    print("Dynamic solution result:", dynamic(len(array_bridges), array_bridges))
 
 
 # Press the green button in the gutter to run the script.
