@@ -70,15 +70,13 @@ def dynamic(n, A):
     return DP[n - 1]
 
 
-
 def main():
     # num_colors value to be changed whenever needed
     num_colors = 5
     # array_bridges = generate_random(num_colors)
-    array_bridges = [4, 3, 1, 2]
+    array_bridges = [5, 4, 1, 2, 3]
     print("Bridge set to be checked: ", array_bridges)
     subsets = subset_maker(array_bridges)
-    # print("Subsets for the bridge set: ", subsets)
     print("Brute solution result: ", brute(subsets))
     print("Greedy solution result: ", greedy(array_bridges))
     print("Dynamic solution result:", dynamic(len(array_bridges), array_bridges))
