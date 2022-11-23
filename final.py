@@ -38,6 +38,21 @@ def brute(subsets):
     return max_bridges
 
 
+def greedy(bridge_arr):
+    sorted_version = sorted(bridge_arr)
+    bridgeSet = []
+    n = len(sorted_version[1:])
+    bridge_dict = {}
+    for i, b in enumerate(bridge_arr):
+        bridge_dict[b] = i
+    indexes = [bridge_dict[a] for a in sorted_version]
+    bridgeSet.append(sorted_version[0])
+    for i in range(1, n):
+        if bridgeSet[i - 1] <= sorted_version[i] and indexes[i-1] <= indexes[i]:
+            bridgeSet.append(sorted_version[i])
+    return len(bridgeSet)
+
+
 def main():
     # num_colors value to be changed whenever needed
     num_colors = 5
@@ -46,6 +61,7 @@ def main():
     subsets = subset_maker([5, 4, 1, 2, 3])
     # print("Subsets for the bridge set: ", subsets)
     print("Brute solution result: ", brute(subsets))
+    print("Greedy solution result: ", greedy([5, 4, 1, 2, 3]))
 
 
 # Press the green button in the gutter to run the script.
