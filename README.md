@@ -108,6 +108,13 @@ With how I have implemented the algorithms, there are certain instances in which
 
 ## Plot of Test Case Size & Time Taken
 ![image](https://user-images.githubusercontent.com/56521346/204111475-447395dc-e3f6-44ba-bcd5-8e5fe196fec6.png)
+| Test # | Size Content | Array Tested |
+| :----- | :----------- | :----------- |
+| 1 | 1 | [1] |
+| 2 | 3 | [1, 2, 3] |
+| 3 | 3 | [3, 2, 1] |
+| 4 | 5 | [5, 4, 1, 2, 3] |
+| 5 | 5 | [1, 5, 2, 4, 3] |
 
 ## Algorithm Recommendation
 After analyzing each of the algorithms both in terms of correctness and time efficiency, I would opt for going with the Greedy Algorithm in such case. Though it is slower than the Brute force solution for each instance, it is the most consistent in finding the correct number of total maximum bridges as it passes each of my proposed test cases. Though brute was correct for 4/5 of the test cases, Greedy is more consistent with it passing all of them. I would not recommend running Dynamic for this problem as not only was it the most inconsistent but it also took the most time compared to the others; to which I find this very interesting considering that the Brute force method is the fastest of the three while also being the least optimal. Greedy is definitely the way to go with this board game bridge building problem.
