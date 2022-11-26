@@ -48,8 +48,8 @@ def greedy(bridge_arr):
         bridge_dict[b] = i
     indexes = [bridge_dict[a] for a in sorted_version]
 
-    bridgeSet = []
-    for i in range(len(sorted_version)):
+    bridgeSet = [sorted_version[0]]
+    for i in range(1, len(sorted_version)):
         if indexes[i-1] < indexes[i]:
             bridgeSet.append(sorted_version[i])
     return len(bridgeSet)
@@ -67,14 +67,14 @@ def dynamic(size, bridge_arr):
                     if DP[j] > maxPrev:
                         maxPrev = DP[j]
             DP[i] = 1 + maxPrev
-    return np.max(DP[size - 1])
+    return np.max(DP)
 
 
 def main():
     # num_colors value to be changed whenever needed
     # num_colors = 5
     # array_bridges = generate_random(num_colors)
-    array_bridges = [5, 4, 1, 2, 3]
+    array_bridges = [1, 2, 3]
     print("Bridge set to be checked: ", array_bridges)
     subsets = subset_maker(array_bridges)
     print("Brute solution result: ", brute(subsets))
