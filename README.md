@@ -103,12 +103,11 @@ for i in range(size):
 ### Testing for an empty array
 Due to the given nature of how I have implemented the dynamic algorithm to add the first value in the sorted array onto the DP array to allow for comparisons to the previous value, I cannot test for an empty array as this will result in an exception. To make up for this, this is the reasoning as to why I opted for a single-entry array test as this is the closest to zero.
 
-## Plot of Test Case Size & Time Taken
+### Algorithms resulting in some different results
+With how I have implemented the algorithms, there are certain instances in which there are different solutions for each of the algorithms such as moments in which one algorithm will say that the maximum total bridges is less than or more than what other algorithms propose to be the optimal solution. This behavior is to be expected given the nature of how each of these are implemented.
 
-# TODO include plot diagram of this stuff here
+## Plot of Test Case Size & Time Taken
+![image](https://user-images.githubusercontent.com/56521346/204111475-447395dc-e3f6-44ba-bcd5-8e5fe196fec6.png)
 
 ## Algorithm Recommendation
-
-# TODO include the recommended algorithm here
-
-
+After analyzing each of the algorithms both in terms of correctness and time efficiency, I would opt for going with the Greedy Algorithm in such case. Though it is slower than the Brute force solution for each instance, it is the most consistent in finding the correct number of total maximum bridges as it passes each of my proposed test cases. Though brute was correct for 4/5 of the test cases, Greedy is more consistent with it passing all of them. I would not recommend running Dynamic for this problem as not only was it the most inconsistent but it also took the most time compared to the others; to which I find this very interesting considering that the Brute force method is the fastest of the three while also being the least optimal. Greedy is definitely the way to go with this board game bridge building problem.
