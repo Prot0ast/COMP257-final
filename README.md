@@ -100,7 +100,8 @@ for i in range(size):
 
 ## Missing Test Cases & Greedy Algorithm Different Solution Explanations
 
-# TODO include this here
+### Testing for an empty array
+Due to the given nature of how I have implemented the dynamic algorithm to add the first value in the sorted array onto the DP array to allow for comparisons to the previous value, I cannot test for an empty array as this will result in an exception. To make up for this, this is the reasoning as to why I opted for a single-entry array test as this is the closest to zero.
 
 ## Plot of Test Case Size & Time Taken
 
