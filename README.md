@@ -83,7 +83,20 @@ for i in range(size):
 
 ## Outputs
 
-# TODO include outputs here
+### Test Case 1
+![image](https://user-images.githubusercontent.com/56521346/204110378-8f1e7912-fbb9-453f-9197-63543149b92d.png)
+
+### Test Case 2
+![image](https://user-images.githubusercontent.com/56521346/204110803-11fd781b-e364-4490-9efc-58f28cfcfe90.png)
+
+### Test Case 3
+![image](https://user-images.githubusercontent.com/56521346/204110790-ffae6087-9989-444d-9dfa-9e0f01635f98.png)
+
+### Test Case 4
+![image](https://user-images.githubusercontent.com/56521346/204110807-699cc549-7650-44f6-9977-cbd2e485c93e.png)
+
+### Test Case 5
+![image](https://user-images.githubusercontent.com/56521346/204110810-d04754e8-f6ba-452b-916c-3ba3521c34e0.png)
 
 ## Missing Test Cases & Greedy Algorithm Different Solution Explanations
 
