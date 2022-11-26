@@ -74,7 +74,7 @@ def main():
     # num_colors value to be changed whenever needed
     # num_colors = 5
     # array_bridges = generate_random(num_colors)
-    array_bridges = [1, 2, 3]
+    array_bridges = [1, 5, 2, 4, 3]
     print("Bridge set to be checked: ", array_bridges)
     subsets = subset_maker(array_bridges)
     print("Brute solution result: ", brute(subsets))
