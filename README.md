@@ -80,3 +80,21 @@ for i in range(size):
 | Brute-Force       | O(n^2)| Since this algorithm utilizes two for-loops of size n (based on the bridges), this results in a O(n * n) which when simplified is O(n^2). Though my implementation of this algorithm uses a helper function to make subsets, that only takes O(n) which ends up performing faster than the brute force itself which is O(n^2) and as thus cannot be considered as the Big-O runtime for it. |
 | Greedy            | O(n^2)| This takes O(n^2) as well for my given implementation as it goes through one for-loop to generate the subsets of the n_sized_array of bridges and goes through another for-loop to append each value of the sorted version array that abides by the given rules of the problem. |
 | Dynamic Programming| O(n^2)| This algorithm takes O(n^2) as well since it utilizes a nested for-loop that iterates through the size of the n_sized array and checks for each entry that is behind the current index inside of the for-loop to check if the value itself is overlapping or not so that it can append it to the list. |
+
+## Outputs
+
+# TODO include outputs here
+
+## Missing Test Cases & Greedy Algorithm Different Solution Explanations
+
+# TODO include this here
+
+## Plot of Test Case Size & Time Taken
+
+# TODO include plot diagram of this stuff here
+
+## Algorithm Recommendation
+
+# TODO include the recommended algorithm here
+
+
