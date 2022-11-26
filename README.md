@@ -53,4 +53,23 @@ def greedy(n_sized_array):
     if indexes[i-1] < indexes[i]:
       bridgeSet.append(sorted_arr[i])
   return len(bridgeSet)
+```
 
+## Pseudocode for Dynamic Programming Algorithm:
+This algorithm takes in both the size of the n_sized array of bridges alongside the n_sized array of bridges to which it generates a storage space that is the same size as the (you guessed it) n_sized array of bridges and updates the values to it in accordance to the problem. Since this method builds up to the solution, it updates the value of the storage space so long as the value within the n_sized array of bridges is less than the previous entry as that would indicate that it is not overlapping. Since this method is very similar to that of the longest increasing subsequence problem, we will also be returning the maximum number from the subsequence as that would be the maximum number of bridges that can be generated.
+```python
+def dynamic(size, n_sized_array):
+storage = [# for i in range(size)] # The # does not matter as this gets updated for each n element in 
+                                   # n_sized_array
+for i in range(size):
+  if i == 0:
+    storage[i] = 1
+  else:
+    maxPrev = 0
+    for j in range(i - 1):
+      if n_sized_array[j] < n_sized_array[i]:
+        if storage[j] > maxPrev:
+          maxPrev = storage[j]
+    storage[i] = 1 + maxPrev
+ return maximum of storage[size - 1]
+```
