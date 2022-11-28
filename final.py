@@ -9,13 +9,6 @@ from itertools import chain, combinations
 # Helper Functions
 
 
-def generate_random(n):
-    v = [0] * n
-    for i in range(n):
-        v[i] = i + 1
-    return v
-
-
 def subset_maker(bridges):
     subsets = list(bridges)
     return chain.from_iterable(combinations(subsets, r) for r in range(len(subsets)+1))
@@ -69,9 +62,6 @@ def dynamic(size, bridge_arr):
 
 
 def main():
-    # num_colors value to be changed whenever needed
-    # num_colors = 5
-    # array_bridges = generate_random(num_colors)
     array_bridges = [1, 5, 2, 4, 3]
     print("Bridge set to be checked: ", array_bridges)
     subsets = subset_maker(array_bridges)
