@@ -16,11 +16,8 @@ This algorithm takes in the n-sized array of bridges and obtains each possible s
 ```python
 
 def subset_maker(n_sized_bridges):
-  subsets = [[]]
-  for i in range(len(n_sized_bridges) + 1);
-    for j in range(i):
-      subsets.append(n_sized_bridges[j:i])
- return subsets
+  subsets = list(n_sized_bridges)
+  return chain.from_iterable(combinations(subsets, r) for r in range(len(subsets)+1))
 
 def brute(subsets):
   max_bridges = 0
@@ -48,8 +45,8 @@ def greedy(n_sized_array):
     bridge_dict[b] = i
   indexes = [bridge_dict[a] for a in sorted_arr]
   
-  bridgeSet = []
-  for in range(len(sorted_arr)):
+  bridgeSet = [sorted_arr[0]]
+  for in range(1, len(sorted_arr)):
     if indexes[i-1] < indexes[i]:
       bridgeSet.append(sorted_arr[i])
   return len(bridgeSet)
@@ -66,7 +63,7 @@ for i in range(size):
     storage[i] = 1
   else:
     maxPrev = 0
-    for j in range(i - 1):
+    for j in range(i):
       if n_sized_array[j] < n_sized_array[i]:
         if storage[j] > maxPrev:
           maxPrev = storage[j]
@@ -87,16 +84,17 @@ for i in range(size):
 ![image](https://user-images.githubusercontent.com/56521346/204110378-8f1e7912-fbb9-453f-9197-63543149b92d.png)
 
 ### Test Case 2
-![image](https://user-images.githubusercontent.com/56521346/204110803-11fd781b-e364-4490-9efc-58f28cfcfe90.png)
+![image](https://user-images.githubusercontent.com/56521346/204363775-9bbcb0bb-d74f-4315-b46b-d6d38ff46999.png)
 
 ### Test Case 3
 ![image](https://user-images.githubusercontent.com/56521346/204110790-ffae6087-9989-444d-9dfa-9e0f01635f98.png)
 
 ### Test Case 4
-![image](https://user-images.githubusercontent.com/56521346/204110807-699cc549-7650-44f6-9977-cbd2e485c93e.png)
+![image](https://user-images.githubusercontent.com/56521346/204363812-6ff53fd6-d9da-4e23-bdde-58cd3712af4b.png)
 
 ### Test Case 5
-![image](https://user-images.githubusercontent.com/56521346/204110810-d04754e8-f6ba-452b-916c-3ba3521c34e0.png)
+![image](https://user-images.githubusercontent.com/56521346/204363848-6f3a72f7-183a-4616-b29e-f8175323d05f.png)
+
 
 ## Missing Test Cases & Greedy Algorithm Different Solution Explanations
 
@@ -107,7 +105,7 @@ Due to the given nature of how I have implemented the dynamic algorithm to add t
 With how I have implemented the algorithms, there are certain instances in which there are different solutions for each of the algorithms such as moments in which one algorithm will say that the maximum total bridges is less than or more than what other algorithms propose to be the optimal solution. This behavior is to be expected given the nature of how each of these are implemented.
 
 ## Plot of Test Case Size & Time Taken
-![image](https://user-images.githubusercontent.com/56521346/204111475-447395dc-e3f6-44ba-bcd5-8e5fe196fec6.png)
+![image](https://user-images.githubusercontent.com/56521346/204365657-2cb61f5a-022d-4f03-a711-eb19947866f6.png)
 | Test # | Size Content | Array Tested |
 | :----- | :----------- | :----------- |
 | 1 | 1 | [1] |
@@ -117,4 +115,4 @@ With how I have implemented the algorithms, there are certain instances in which
 | 5 | 5 | [1, 5, 2, 4, 3] |
 
 ## Algorithm Recommendation
-After analyzing each of the algorithms both in terms of correctness and time efficiency, I would opt for going with the Greedy Algorithm in such case. Though it is slower than the Brute force solution for each instance, it is the most consistent in finding the correct number of total maximum bridges as it passes each of my proposed test cases. Though brute was correct for 4/5 of the test cases, Greedy is more consistent with it passing all of them. I would not recommend running Dynamic for this problem as not only was it the most inconsistent but it also took the most time compared to the others; to which I find this very interesting considering that the Brute force method is the fastest of the three while also being the least optimal. Greedy is definitely the way to go with this board game bridge building problem.
+After analyzing each of the algorithms both in terms of correctness and time efficiency, I would opt for going with the Brute Force algorithm for this situation. Since each of the algorithm approaches themselves are all O(n^2), it will always be as equally optimal as the other options thus invalidating using this as criteria to differentiate it from the rest. The main factor that we can use to differentiate them however is speed and from each iteration it seems that Brute force is the fastest of the 3, returning the correct answer before each of the other three get to finish. 
