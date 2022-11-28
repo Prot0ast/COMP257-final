@@ -17,11 +17,8 @@ def generate_random(n):
 
 
 def subset_maker(bridges):
-    subsets = [[]]
-    for i in range(len(bridges) + 1):
-        for j in range(i):
-            subsets.append(bridges[j: i])
-    return subsets
+    subsets = list(bridges)
+    return chain.from_iterable(combinations(subsets, r) for r in range(len(subsets)+1))
 
 
 # Algorithm Implementations
