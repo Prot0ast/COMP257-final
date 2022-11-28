@@ -4,6 +4,7 @@
 # Brute-Force, Greedy, and Dynamic Programming
 
 import numpy as np
+from itertools import chain, combinations
 
 # Helper Functions
 
@@ -62,7 +63,7 @@ def dynamic(size, bridge_arr):
             DP[i] = 1
         else:
             maxPrev = 0
-            for j in range(i - 1):
+            for j in range(i):
                 if bridge_arr[j] < bridge_arr[i]:
                     if DP[j] > maxPrev:
                         maxPrev = DP[j]
